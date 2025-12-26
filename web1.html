@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fire Blood | هاب اصلی</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Metal+Mania&display=swap');
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Vazirmatn, Tahoma, sans-serif;
+      background: radial-gradient(circle at center, #020617 0%, #000000 70%);
+      color: #e5e7eb;
+    }
+
+    header {
+      min-height: 100vh;
+      background: radial-gradient(circle at top, #7f1d1d 0%, #020617 65%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .logo {
+      font-family: 'Metal Mania', cursive;
+      font-size: 4.5rem;
+      letter-spacing: 4px;
+      color: #fca5a5;
+      text-shadow:
+        0 0 15px rgba(220,38,38,0.8),
+        0 0 40px rgba(220,38,38,0.6);
+      position: relative;
+    }
+
+    .logo::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 100%;
+      width: 6px;
+      height: 60px;
+      background: linear-gradient(to bottom, #dc2626, transparent);
+      animation: drip 2.5s infinite;
+      transform: translateX(-50%);
+    }
+
+    @keyframes drip {
+      0% { height: 0; opacity: 0; }
+      30% { height: 60px; opacity: 1; }
+      100% { height: 120px; opacity: 0; }
+    }
+
+    .subtitle {
+      max-width: 700px;
+      margin-top: 1rem;
+      font-size: 1.2rem;
+      color: #fecaca;
+    }
+
+    .container {
+      min-height: 100vh;
+      max-width: 1600px;
+      margin: 0 auto;
+      padding: 5rem 1.5rem;
+      transition: background 0.6s ease;
+    }
+
+    .container.minecraft {
+  background: radial-gradient(circle at top, #052e16 0%, #020617 45%, #000000 100%);
+}
+    .container.gta {
+  background: radial-gradient(circle at top, #3f2a00 0%, #020617 45%, #000000 100%);
+}
+    .container.cs {
+  background: radial-gradient(circle at top, #020617 0%, #020617 45%, #000000 100%);
+}
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+    }
+
+    .card {
+      background: linear-gradient(165deg, #070a14, #000000);
+      border-radius: 28px;
+      padding: 2.4rem 2.2rem;
+      box-shadow:
+        inset 0 0 60px rgba(220,38,38,0.06),
+        0 35px 90px rgba(0,0,0,0.95);
+      transition: all 0.35s ease;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top, rgba(220,38,38,0.18), transparent 65%);
+      opacity: 0;
+      transition: opacity 0.35s ease;
+    }
+
+    .card:hover::after {
+      opacity: 1;
+    }
+
+    .card:hover {
+      transform: translateY(-8px) scale(1.03);
+      box-shadow: 0 0 0 1px rgba(220,38,38,0.6), 0 35px 80px rgba(0,0,0,1);
+    }
+
+    .card h3 {
+      font-family: 'Metal Mania', cursive;
+      font-size: 1.7rem;
+      color: #ffb4b4;
+      margin-bottom: 0.9rem;
+      letter-spacing: 1.5px;
+      text-shadow: 0 0 12px rgba(220,38,38,0.6);
+    }
+
+    .card p {
+      color: #9ca3af;
+      font-size: 0.95rem;
+    }
+
+    .blood {
+      position: absolute;
+      top: -20%;
+      width: 8px;
+      height: 160px;
+      background: linear-gradient(to bottom, rgba(220,38,38,0), rgba(220,38,38,0.9));
+      animation: fall 5s linear infinite;
+      opacity: 0.7;
+    }
+
+    .blood1 { left: 20%; animation-delay: 0s; }
+    .blood2 { left: 50%; animation-delay: 1.5s; }
+    .blood3 { left: 80%; animation-delay: 3s; }
+
+    @keyframes fall {
+      to { transform: translateY(140vh); }
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.85rem;
+      color: #6b7280;
+    }
+      .ip-box {
+      max-width: 420px;
+      margin: 3rem auto 4rem;
+      padding: 1.5rem 2rem;
+      border-radius: 18px;
+      background: linear-gradient(180deg, #020617, #000000);
+      text-align: center;
+      cursor: pointer;
+      box-shadow: 0 0 0 1px rgba(220,38,38,0.4), 0 25px 60px rgba(0,0,0,0.9);
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+
+    .ip-box:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 0 1px rgba(220,38,38,0.9), 0 35px 90px rgba(0,0,0,1);
+    }
+
+    .ip-box .label {
+      display: block;
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      color: #9ca3af;
+      margin-bottom: 0.4rem;
+    }
+
+    .ip-box .ip {
+      font-family: 'Metal Mania', cursive;
+      font-size: 1.8rem;
+      color: #fca5a5;
+      text-shadow: 0 0 10px rgba(220,38,38,0.8);
+    }
+
+    .ip-box .hint {
+      display: block;
+      margin-top: 0.4rem;
+      font-size: 0.75rem;
+      color: #6b7280;
+    }
+
+    /* Cinematic Blood Particles */
+    .blood {
+      position: absolute;
+      top: -10%;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #ff3b3b 20%, #7f1d1d 60%, transparent 72%);
+      filter: blur(0.6px);
+      animation: drip 7s cubic-bezier(.2,.6,.4,1) infinite;
+      opacity: 0.85;
+    }
+
+    .blood1 { left: 18%; animation-delay: 0s; }
+    .blood2 { left: 36%; animation-delay: 2s; }
+    .blood3 { left: 58%; animation-delay: 4s; }
+    .blood4 { left: 78%; animation-delay: 6s; }
+
+    @keyframes drip {
+      0% { transform: translateY(0) scale(0.6); opacity: 0; }
+      15% { opacity: 1; }
+      85% { opacity: 0.9; }
+      100% { transform: translateY(120vh) scale(1.2); opacity: 0; }
+    }
+    
+  @media (max-width: 768px) {
+    .logo { font-size: 3rem; }
+    .subtitle { font-size: 1rem; padding: 0 1rem; }
+    .game-tabs { top: auto; bottom: 20px; }
+    .tab { padding: 0.5rem 1rem; font-size: 0.85rem; }
+    .container { padding: 4rem 1rem 6rem; }
+    .card { padding: 1.5rem; }
+  }
+
+  @media (max-width: 480px) {
+    .logo { font-size: 2.4rem; letter-spacing: 2px; }
+    .ip-box .ip { font-size: 1.4rem; }
+    .grid { gap: 1.2rem; }
+  }
+
+  @media (max-width: 768px) {
+      header { padding: 2rem 1rem; }
+      .logo { font-size: 3rem; }
+      .subtitle { font-size: 1rem; padding: 0 1rem; }
+      .ip-box { width: 90%; }
+      .grid { grid-template-columns: 1fr; }
+      .card { padding: 1.8rem; }
+    }
+  .games {
+      display: flex;
+      flex-direction: column;
+      gap: 5rem;
+    }
+
+    .game-title {
+      grid-column: 1 / -1;
+      font-family: 'Metal Mania', cursive;
+      font-size: 2.6rem;
+      margin-bottom: 1rem;
+      text-align: center;
+      letter-spacing: 3px;
+      text-shadow: 0 0 20px rgba(220,38,38,0.6);
+    }
+
+    .minecraft .game-title { color: #22c55e; }
+    .gta .game-title { color: #facc15; }
+    .cs .game-title { color: #60a5fa; }
+
+    .minecraft .card { box-shadow: inset 0 0 60px rgba(34,197,94,0.08), 0 35px 90px rgba(0,0,0,0.95); }
+    .gta .card { box-shadow: inset 0 0 60px rgba(250,204,21,0.08), 0 35px 90px rgba(0,0,0,0.95); }
+    .cs .card { box-shadow: inset 0 0 60px rgba(96,165,250,0.08), 0 35px 90px rgba(0,0,0,0.95); }
+
+    @media (max-width: 768px) {
+      .game-title { font-size: 2rem; }
+    }
+      .game-tabs {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 1rem;
+      z-index: 1000;
+    }
+    .tab {
+      background: rgba(0,0,0,0.6);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: #fff;
+      padding: 0.6rem 1.4rem;
+      border-radius: 999px;
+      cursor: pointer;
+      font-family: 'Metal Mania', cursive;
+      letter-spacing: 1px;
+    }
+    .tab.active { box-shadow: 0 0 15px rgba(220,38,38,0.8); }
+
+    .game-bg {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      opacity: 0;
+      transition: opacity 0.6s ease;
+    }
+    .minecraft-bg { background: radial-gradient(circle at top, #052e16, #000); }
+    .gta-bg { background: radial-gradient(circle at top, #3f2a00, #000); }
+    .cs-bg { background: radial-gradient(circle at top, #020617, #000); }
+    .game-bg.active { opacity: 1; }
+      /* Smoke */
+    .smoke {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background: radial-gradient(circle at 30% 40%, rgba(255,255,255,0.04), transparent 60%),
+                  radial-gradient(circle at 70% 60%, rgba(255,255,255,0.03), transparent 65%);
+      animation: smokeMove 20s linear infinite;
+      z-index: 0;
+    }
+
+    @keyframes smokeMove {
+      from { transform: translateY(0); }
+      to { transform: translateY(-200px); }
+    }
+
+    /* Blood splash on switch */
+    .splash {
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(circle, rgba(220,38,38,0.4), transparent 70%);
+      opacity: 0;
+      pointer-events: none;
+      z-index: 999;
+      transition: opacity 0.4s;
+    }
+    .splash.active { opacity: 1; }
+  </style>
+
+  <audio id="switchSound" src="https://assets.mixkit.co/active_storage/sfx/2568/2568-preview.mp3" preload="auto"></audio>
+
+  <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const tabs = document.querySelectorAll('.tab');
+    const sections = document.querySelectorAll('.game-section');
+    const bgs = document.querySelectorAll('.game-bg');
+    const container = document.querySelector('.container');
+    const splash = document.querySelector('.splash');
+    const sound = document.getElementById('switchSound');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const game = tab.dataset.game;
+
+        tabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+
+        sections.forEach(s => {
+          s.style.display = s.classList.contains(game) ? 'grid' : 'none';
+        });
+
+        bgs.forEach(bg => bg.classList.remove('active'));
+        const bg = document.querySelector('.' + game + '-bg');
+        if (bg) bg.classList.add('active');
+
+        container.classList.remove('minecraft','gta','cs');
+        container.classList.add(game);
+
+        if (splash) {
+          splash.classList.add('active');
+          setTimeout(() => splash.classList.remove('active'), 300);
+        }
+
+        if (sound) {
+          sound.currentTime = 0;
+          sound.volume = 0.25;
+          sound.play().catch(()=>{});
+        }
+      });
+    });
+
+    if (tabs[0]) tabs[0].classList.add('active');
+    const firstBg = document.querySelector('.minecraft-bg');
+    if (firstBg) firstBg.classList.add('active');
+  });
+</script>
+
+  <script>
+    function copyIP() {
+      navigator.clipboard.writeText('play.fireblood.com');
+      alert('IP کپی شد: play.fireblood.com');
+    }
+  </script>
+</head>
+<body>
+  <div class="game-tabs">
+    <button class="tab active" data-game="minecraft">Minecraft</button>
+    <button class="tab" data-game="gta">GTA</button>
+    <button class="tab" data-game="cs">Counter‑Strike</button>
+  </div>
+  <header>
+    <div class="blood blood1"></div>
+    <div class="blood blood2"></div>
+    <div class="blood blood3"></div>
+    <h1 class="logo">FIRE BLOOD</h1>
+    <p class="subtitle">A realm forged in fire and blood — only the strong survive.</p>
+  </header>
+
+  <main class="container">
+    <section class="games">
+    <div class="game-bg minecraft-bg"></div>
+    <div class="game-bg gta-bg"></div>
+    <div class="game-bg cs-bg"></div>
+    <div class="ip-box" onclick="copyIP()">
+      <span class="label">IP SERVER</span>
+      <span class="ip">play.fireblood.com</span>
+      <span class="hint">برای کپی کلیک کنید</span>
+    </div>
+
+    <section class="grid game-section minecraft">
+      <h2 class="game-title">🧱 Minecraft Realm</h2>
+      <!-- Dark Minecraft Hub -->
+      <!-- Fire Blood | Minecraft Dark Hub -->
+      <div class="card" onclick="location.href='#'">
+        <h3>⚔️ ورود به سرور</h3>
+        <p>آی‌پی، نسخه ماینکرفت و تعداد پلیرهای آنلاین</p>
+      </div>
+      <div class="card" onclick="location.href='#'">
+        <h3>📜 قوانین بقا</h3>
+        <p>قوانینی که مرز بین بقا و نابودی را مشخص می‌کند</p>
+      </div>
+      <div class="card" onclick="location.href='#'">
+        <h3>👑 رنک‌ها و قدرت‌ها</h3>
+        <p>رنک‌ها، توانایی‌ها و دسترسی‌های ویژه</p>
+      </div>
+      <div class="card" onclick="location.href='#'">
+        <h3>💬 ورود به دیسکورد</h3>
+        <p>چت، پشتیبانی و هماهنگی با بازیکنان</p>
+      </div>
+      <div class="card" onclick="location.href='#'">
+        <h3>🩸 لور Fire Blood</h3>
+        <p>داستان تاریک دنیایی که در آن قدم می‌گذاری</p>
+      </div>
+    </section>
+
+    <section class="grid game-section gta">
+      <h2 class="game-title">🚓 GTA Underworld</h2>
+      <div class="card lore"><h3>🚓 سرقت‌ها و گروه‌ها</h3><p>سیستم گنگ‌ها، مأموریت‌های شهری و دنیای تاریک خیابان‌ها</p></div>
+      <div class="card lore"><h3>⚠️ قوانین خیابان</h3><p>اینجا رحم وجود ندارد؛ اشتباه مساوی با حذف است</p></div>
+    </section>
+
+    <section class="grid game-section cs">
+      <h2 class="game-title">💣 Counter‑Strike Arena</h2>
+      <div class="card lore"><h3>💣 نبردهای رقابتی</h3><p>مسابقات رنک‌دار، کلن‌ها و مبارزات نفس‌گیر</p></div>
+      <div class="card lore"><h3>🎯 سلاح‌ها و مهارت‌ها</h3><p>دقت، سرعت واکنش و تسلط کامل در میدان نبرد</p></div>
+    </section>
+  </section>
+</main>
+
+  <footer>
+    © 2025 Fire Blood - تمامی حقوق محفوظ است
+  </footer>
+  <div class="smoke"></div>
+  <div class="splash"></div>
+</body>
+</html>
+
