@@ -1,0 +1,16 @@
+# سیستم‌عامل
+.DS_Store
+Thumbs.db
+
+# فایل‌های لاگ
+*.log
+
+# پوشه node_modules (اگر استفاده شده)
+node_modules/
+
+# فایل‌های محیط توسعه
+.env
+
+# فایل‌های ساخته شده (Build)
+dist/
+build/
